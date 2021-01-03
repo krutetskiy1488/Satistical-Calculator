@@ -11,10 +11,12 @@ using namespace std;
 class Button : public Drawable
 {
 public:
-	virtual void set(Font& font, int x, int y, string value);
+	virtual void set(Font& font, int x, int y, int h, int w, string value);
 
 	bool isPressed(RenderWindow& window);
+	void onBound(RenderWindow& window);
 protected:
+	RectangleShape _bound;
 	Text _text;
 	Clock _timer;
 

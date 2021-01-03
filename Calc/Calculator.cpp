@@ -22,30 +22,30 @@ void Calculator::run()
 
 	/*BUTTONS*/
 	/*NUMS*/
-	buttons[0] .set(font, 70 , 400, "0"  );
-	buttons[1] .set(font, 20 , 100, "1"  );
-	buttons[2] .set(font, 70 , 100, "2"  );
-	buttons[3] .set(font, 120, 100, "3"  );
-	buttons[4] .set(font, 20 , 200, "4"  );
-	buttons[5] .set(font, 70 , 200, "5"  );
-	buttons[6] .set(font, 120, 200, "6"  );
-	buttons[7] .set(font, 20 , 300, "7"  );
-	buttons[8] .set(font, 70 , 300, "8"  );
-	buttons[9] .set(font, 120, 300, "9"  );
+	buttons[0] .set(font, 70 , 400, 40, 50, "0"  );
+	buttons[1] .set(font, 20 , 100, 40, 50, "1"  );
+	buttons[2] .set(font, 70 , 100, 40, 50, "2"  );
+	buttons[3] .set(font, 120, 100, 40, 50, "3"  );
+	buttons[4] .set(font, 20 , 200, 40, 50, "4"  );
+	buttons[5] .set(font, 70 , 200, 40, 50, "5"  );
+	buttons[6] .set(font, 120, 200, 40, 50, "6"  );
+	buttons[7] .set(font, 20 , 300, 40, 50, "7"  );
+	buttons[8] .set(font, 70 , 300, 40, 50, "8"  );
+	buttons[9] .set(font, 120, 300, 40, 50, "9"  );
 	/*ROOLS*/
-	buttons[10].set(font, 170, 100, "RND");
-	buttons[11].set(font, 170, 200, "NRM");
-	buttons[12].set(font, 270, 100, "CLR");
-	buttons[13].set(font, 20 , 400, "+"  );
-	buttons[14].set(font, 125, 400, "-"  );
-	buttons[15].set(font, 170, 300, "MIN");
-	buttons[16].set(font, 270, 300, "MAX");
-	buttons[17].set(font, 270, 200, "MDL");
-	buttons[18].set(font, 170, 400, "MDN");
-	buttons[19].set(font, 270, 400, "VRN");
-	buttons[20].set(font, 370, 300, "ASM");
-	buttons[21].set(font, 370, 400, "EXC");
-	buttons[22].set(font, 600, 100, "TEST");
+	buttons[10].set(font, 170, 100, 85, 50, "RND");
+	buttons[11].set(font, 170, 200, 85, 50, "NRM");
+	buttons[12].set(font, 270, 100, 85, 50, "CLR");
+	buttons[13].set(font, 20 , 400, 40, 50, "+"  );
+	buttons[14].set(font, 125, 400, 37, 50, "-"  );
+	buttons[15].set(font, 170, 300, 85, 50, "MIN");
+	buttons[16].set(font, 270, 300, 85, 50, "MAX");
+	buttons[17].set(font, 270, 200, 85, 50, "MDL");
+	buttons[18].set(font, 170, 400, 85, 50, "MDN");
+	buttons[19].set(font, 270, 400, 85, 50, "VRN");
+	buttons[20].set(font, 370, 300, 85, 50, "ASM");
+	buttons[21].set(font, 370, 400, 85, 50, "EXC");
+	buttons[22].set(font, 600, 100,100, 50, "TEST");
 
 	/*BOXES*/
 	texts[0].set(font, 10, 10, 40, 970, "Selection:");
@@ -93,6 +93,10 @@ void Calculator::events()
 		}
 	}
 
+	//FillColor
+	for (int i = 0; i < buttons.size(); i++)
+		buttons[i].onBound(_window);
+
 	//NUMS
 	for (int i = 0; i < 10; i++) {
 		if (buttons[i].isPressed(_window)) {
@@ -134,6 +138,7 @@ void Calculator::events()
 	if (buttons[12].isPressed(_window)) {
 		texts[0].clear();
 		texts[1].clear();
+		texts[2].clear();
 	}
 
 	//MIN
